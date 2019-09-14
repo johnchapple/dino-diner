@@ -1,16 +1,35 @@
-﻿using System.Collections.Generic;
+﻿/*  PterodactlyWings.cs
+ *  Author: John Chapple
+ */
+
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Class PterodactylWings contains all the information and methods for preparing a custom PterodactylWings for the customer.
+    /// </summary>
     public class PterodactylWings
     {
+        /// <summary>
+        /// the below listed private bools resemble whether or not our object will have this ingredient
+        /// </summary>
         private bool bun = true;
         private bool peppers = true;
         private bool onions = true;
 
+        /// <summary>
+        /// public double Price lets us access and change the price of the class
+        /// </summary>
         public double Price { get; set; }
+        /// <summary>
+        /// public unit Calories lets us access and change the calories of the class
+        /// </summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// public List<string> Ingredients adds all of the ingredients to our Item, dependent on our boolean flags above
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -20,12 +39,18 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Sets the default creation price and calories of a PterodactylWings object
+        /// </summary>
         public PterodactylWings()
         {
             this.Price = 7.21;
             this.Calories = 318;
         }
 
+        /// <summary>
+        /// the below methods allow us to flag each of any of our ingredient booleans to remove the ingrdient from the item
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
