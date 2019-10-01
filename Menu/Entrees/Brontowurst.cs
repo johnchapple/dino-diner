@@ -57,6 +57,11 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 498;
         }
 
+        public override string ToString()
+        {
+            return "Brontowurst";
+        }
+
         /// <summary>
         /// public void HoldBun lets us remove the bun from the item
         /// </summary>

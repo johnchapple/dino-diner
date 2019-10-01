@@ -50,6 +50,11 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 59 * this.nuggetCount;
         }
 
+        public override string ToString()
+        {
+            return "DinoNuggets";
+        }
+
         /// <summary>
         /// public void AddNugget adds 1 to the nuggetCount, and increases the price variable accordingly
         /// </summary>

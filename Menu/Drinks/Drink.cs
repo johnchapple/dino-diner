@@ -44,6 +44,10 @@ namespace DinoDiner.Menu.Drinks
             Ice = false;
         }
 
+        public override string ToString()
+        {
+            return "Drink";
+        }
 
     }
 }

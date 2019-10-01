@@ -42,5 +42,10 @@ namespace DinoDiner.Menu.Sides
             Price = .99;
             Calories = 420;
         }
+
+        public override string ToString()
+        {
+            return "MeteorMacAndCheese";
+        }
     }
 }

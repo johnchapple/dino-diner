@@ -59,5 +59,10 @@ namespace DinoDiner.Menu.Drinks
         public override bool Ice { get; set; }
         public bool Decaf { get; set; }
         public bool RoomForCream { get; set; }
+
+        public override string ToString()
+        {
+            return "JurrasicJava";
+        }
     }
 }

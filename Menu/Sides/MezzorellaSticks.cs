@@ -43,5 +43,10 @@ namespace DinoDiner.Menu.Sides
             Price = .99;
             Calories = 540;
         }
+
+        public override string ToString()
+        {
+            return "MezzorellaSticks";
+        }
     }
 }

@@ -41,5 +41,10 @@ namespace DinoDiner.Menu.Sides
             Price = .99;
             Calories = 352;
         }
+
+        public override string ToString()
+        {
+            return "Tricertitots";
+        }
     }
 }

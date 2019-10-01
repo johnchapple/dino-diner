@@ -47,6 +47,10 @@ namespace DinoDiner.Menu.Drinks
             Sweet = false;
             Lemon = false;
         }
+        public override string ToString()
+        {
+            return "Tyrannotea";
+        }
 
         public void AddLemon()
         {

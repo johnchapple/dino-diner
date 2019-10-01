@@ -53,6 +53,11 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 621;
         }
 
+        public override string ToString()
+        {
+            return "SteakosaurusBurger";
+        }
+
         /// <summary>
         /// the below methods allow us to flag each of any of our ingredient booleans to remove the ingrdient from the item
         /// </summary>

@@ -42,5 +42,10 @@ namespace DinoDiner.Menu.Sides
             Price = .99;
             Calories = 222;
         }
+
+        public override string ToString()
+        {
+            return "Fryceritops";
+        }
     }
 }

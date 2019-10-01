@@ -44,6 +44,11 @@ namespace DinoDiner.Menu.Drinks
             Calories = 112;
         }
 
+        public override string ToString()
+        {
+            return "Sodasaurus";
+        }
+
         public override bool Ice { get; set; }
 
         public SodasaurusFlavor Flavor;

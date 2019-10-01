@@ -48,6 +48,11 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 318;
         }
 
+        public override string ToString()
+        {
+            return "PterodactlyWings";
+        }
+
         /// <summary>
         /// the below methods allow us to flag each of any of our ingredient booleans to remove the ingrdient from the item
         /// </summary>
