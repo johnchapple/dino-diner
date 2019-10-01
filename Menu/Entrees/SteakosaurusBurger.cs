@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class SteakosaurusBurger contains all the information and methods for preparing a custom SteakosaurusBurger for the customer.

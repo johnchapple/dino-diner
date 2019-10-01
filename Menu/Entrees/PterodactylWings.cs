@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class PterodactylWings contains all the information and methods for preparing a custom PterodactylWings for the customer.

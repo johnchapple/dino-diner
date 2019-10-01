@@ -6,8 +6,8 @@ namespace DinoDiner.Menu
 {
     interface IMenuItem
     {
-        double Price { get; set; }
-        uint Calories { get; set; }
-        List<string> Ingredients { get; set; }
+        double Price { get; }
+        uint Calories { get; }
+        List<string> Ingredients { get; }
     }
 }
