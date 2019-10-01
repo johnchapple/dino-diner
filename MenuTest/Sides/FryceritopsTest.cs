@@ -3,7 +3,7 @@ using DinoDiner.Menu.Sides;
 
 namespace MenuTest.Sides
 {
-    public class FryceritopsTest
+    public class SodaSaurusTest
     {
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
