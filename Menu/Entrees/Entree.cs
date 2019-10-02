@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     public abstract class Entree : IMenuItem
     {
@@ -24,6 +24,6 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public abstract Size Size { get; set; }
+        public Size Size { get; set; }
     }
 }

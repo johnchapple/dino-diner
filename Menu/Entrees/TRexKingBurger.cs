@@ -9,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class TRexKingBurger contains all the information and methods for preparing a custom TRexKingBurger for the customer.
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// the below listed private bools resemble whether or not our object will have this ingredient
@@ -24,18 +24,9 @@ namespace DinoDiner.Menu
         private bool mayo = true;
 
         /// <summary>
-        /// public double Price lets us access and change the price of the class
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// public unit Calories lets us access and change the calories of the class
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// public List<string> Ingredients adds all of the ingredients to our Item, dependent on our boolean flags above
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

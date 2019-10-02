@@ -9,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Class Brontowurst contains all the information and methods for preparing a custom Brontowurst for the customer.
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst : Entree
     {
         /// <summary>
         /// private bool Bun resembles whether or not the item will have a bun
@@ -25,18 +25,9 @@ namespace DinoDiner.Menu
         private bool Onions = true;
 
         /// <summary>
-        /// public double Price lets us access and change the price of the class
-        /// </summary>
-        public double Price { get; set; }
-        /// <summary>
-        /// public unit Calories lets us access and change the calories of the class
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// public List<string> Ingredients adds all of the ingredients to our Item, dependent on our boolean flags above
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
