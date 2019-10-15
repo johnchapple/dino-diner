@@ -60,5 +60,25 @@ namespace DinoDiner.Menu
         {
             this.onions = false;
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "PterodactlyWings";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!this.bun) { special.Add("Hold Bun "); }
+                if (!this.peppers) { special.Add("Hold Peppers "); }
+                if (!this.onions) { special.Add("Hold Onions "); }
+                return special.ToArray();
+            }
+        }
     }
 }

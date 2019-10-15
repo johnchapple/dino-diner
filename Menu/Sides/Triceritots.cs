@@ -46,5 +46,22 @@ namespace DinoDiner.Menu
         {
             return "Tricertitots";
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "Tricertitots";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
     }
 }

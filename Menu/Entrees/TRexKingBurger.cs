@@ -99,5 +99,30 @@ namespace DinoDiner.Menu
         {
             this.mayo = false;
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "TRexKingBurger";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!this.bun) { special.Add("Hold Bun "); }
+                if (!this.lettuce) { special.Add("Hold Lettuce "); }
+                if (!this.tomato) { special.Add("Hold Tomato "); }
+                if (!this.onion) { special.Add("Hold Onion "); }
+                if (!this.pickle) { special.Add("Hold Pickle "); }
+                if (!this.ketchup) { special.Add("Hold Ketchup "); }
+                if (!this.mustard) { special.Add("Hold Mustard "); }
+                if (!this.mayo) { special.Add("Hold Mayo "); }
+                return special.ToArray();
+            }
+        }
     }
 }

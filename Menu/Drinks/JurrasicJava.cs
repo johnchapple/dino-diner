@@ -64,5 +64,25 @@ namespace DinoDiner.Menu
         {
             return "JurrasicJava";
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "JurrasicJava";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) { special.Add("Ice "); }
+                if (Decaf) { special.Add("Decaf "); }
+                if (RoomForCream) { special.Add("Room for Cream"); }
+                return special.ToArray();
+            }
+        }
     }
 }

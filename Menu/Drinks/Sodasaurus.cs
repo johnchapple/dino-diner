@@ -52,5 +52,23 @@ namespace DinoDiner.Menu
         public override bool Ice { get; set; }
 
         public SodasaurusFlavor Flavor;
+
+        public override string Description
+        {
+            get
+            {
+                return "Sodasaurus";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) { special.Add("Ice "); }
+                return special.ToArray();
+            }
+        }
     }
 }

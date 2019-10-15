@@ -47,5 +47,22 @@ namespace DinoDiner.Menu
         {
             return "Fryceritops";
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "Fryceritops";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
     }
 }

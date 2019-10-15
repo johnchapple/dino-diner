@@ -63,5 +63,25 @@ namespace DinoDiner.Menu
         {
             this.cheese = false;
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "VelociWrap";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!this.dressing) { special.Add("Hold Dressing "); }
+                if (!this.lettuce) { special.Add("Hold Lettuce "); }
+                if (!this.cheese) { special.Add("Hold Cheese "); }
+                return special.ToArray();
+            }
+        }
     }
 }

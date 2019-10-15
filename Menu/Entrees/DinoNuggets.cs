@@ -55,5 +55,23 @@ namespace DinoDiner.Menu
             this.Price += .59;
             this.nuggetCount += 1;
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "DinoNuggets";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                special.Add("Prepare with Happiness ");
+                return special.ToArray();
+            }
+        }
     }
 }

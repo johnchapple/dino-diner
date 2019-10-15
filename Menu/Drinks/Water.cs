@@ -57,5 +57,24 @@ namespace DinoDiner.Menu
 
         public override bool Ice { get; set; }
         public bool Lemon { get; set; }
+
+        public override string Description
+        {
+            get
+            {
+                return "Water";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice) { special.Add("Add Ice "); }
+                if (Lemon) { special.Add("Add a Lemon "); }
+                return special.ToArray();
+            }
+        }
     }
 }

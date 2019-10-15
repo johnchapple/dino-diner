@@ -39,5 +39,24 @@ namespace DinoDiner.Menu
         {
             return "PrehistoricPBJ";
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "PrehistoricPBJ";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!this.jelly) { special.Add("Hold Jelly "); }
+                if (!this.peanutButter) { special.Add("Hold Peanut Butter "); }
+                return special.ToArray();
+            }
+        }
     }
 }

@@ -70,5 +70,26 @@ namespace DinoDiner.Menu
         {
             this.mustard = false;
         }
+
+        public override string Description
+        {
+            get
+            {
+                return "SteakosaurusBurger";
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!this.bun) { special.Add("Hold Bun "); }
+                if (!this.pickle) { special.Add("Hold Pickle "); }
+                if (!this.ketchup) { special.Add("Hold Ketchup "); }
+                if (!this.mustard) { special.Add("Hold Mustard "); }
+                return special.ToArray();
+            }
+        }
     }
 }
