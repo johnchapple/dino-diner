@@ -3,6 +3,7 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -53,7 +54,12 @@ namespace DinoDiner.Menu
         public void AddNugget()
         {
             this.Price += .59;
+            this.Calories += 59;
             this.nuggetCount += 1;
+            NotifyOfPropertyChanged("nuggetCount");
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
         }
 
         public override string Description
@@ -72,6 +78,13 @@ namespace DinoDiner.Menu
                 special.Add("Prepare with Happiness ");
                 return special.ToArray();
             }
+        }
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName);
         }
     }
 }

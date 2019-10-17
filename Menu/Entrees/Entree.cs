@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Entree : IMenuItem
+    public abstract class Entree : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets the price
@@ -25,5 +26,10 @@ namespace DinoDiner.Menu
         /// Gets or sets the size
         /// </summary>
         public Size Size { get; set; }
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+        public abstract string[] Special { get; }
     }
 }

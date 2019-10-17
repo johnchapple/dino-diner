@@ -99,5 +99,12 @@ namespace MenuTest.Drinks
             ss.Flavor = SodasaurusFlavor.Lime;
             Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Lime, ss.Flavor);
         }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            Assert.Equal("Sodasaurus", jj.Description);
+        }
     }
 }

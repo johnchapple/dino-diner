@@ -106,5 +106,12 @@ namespace MenuTest.Drinks
             w.AddLemon();
             Assert.True(w.Lemon);
         }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            Assert.Equal("Water", jj.Description);
+        }
     }
 }

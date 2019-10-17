@@ -147,5 +147,12 @@ namespace MenuTest.Drinks
             Assert.Equal<Size>(Size.Large, tt.Size);
             Assert.Equal<uint>(64, tt.Calories);
         }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            Assert.Equal("Tyrannotea", jj.Description);
+        }
     }
 }

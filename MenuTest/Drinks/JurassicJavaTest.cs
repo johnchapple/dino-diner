@@ -106,5 +106,12 @@ namespace MenuTest.Drinks
             jj.AddIce();
             Assert.True(jj.Ice);
         }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            Assert.Equal("JurrasicJava", jj.Description);
+        }
     }
 }
