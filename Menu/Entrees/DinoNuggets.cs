@@ -75,16 +75,13 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                special.Add("Prepare with Happiness ");
+                if (nuggetCount > 6)
+                {
+                    special.Add($"{nuggetCount-=6} Extra Nuggets");
+                }
+                
                 return special.ToArray();
             }
-        }
-
-        public override event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName);
         }
     }
 }

@@ -107,6 +107,52 @@ namespace MenuTest.Entrees
             Assert.DoesNotContain<string>("Mayo", trex.Ingredients);
         }
 
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.Equal("T-Rex King Burger", trex.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.Empty(trex.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldBun();
+            trex.HoldLettuce();
+            trex.HoldTomato();
+            trex.HoldOnion();
+            trex.HoldPickle();
+            trex.HoldKetchup();
+            trex.HoldMustard();
+            trex.HoldMayo();
+            Assert.Contains("Hold Tomato", trex.Special);
+            Assert.Contains("Hold Lettuce", trex.Special);
+            Assert.Contains("Hold Bun", trex.Special);
+            Assert.Contains("Hold Onion", trex.Special);
+            Assert.Contains("Hold Pickle", trex.Special);
+            Assert.Contains("Hold Ketchup", trex.Special);
+            Assert.Contains("Hold Mustard", trex.Special);
+            Assert.Contains("Hold Mayo", trex.Special);
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void AddingNuggetsShouldNotifyOfPropertyChange(string propertyName)
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, propertyName, () =>
+            {
+                trex.HoldPickle();
+            });
+        }
     }
 
 }

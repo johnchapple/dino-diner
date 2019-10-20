@@ -30,5 +30,41 @@ namespace MenuTest.Entrees
             Assert.Equal<int>(2, ingredients.Count);
         }
 
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            PterodactylWings pw = new PterodactylWings();
+            Assert.Equal("Pterodactyl Wings", pw.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            PterodactylWings pw = new PterodactylWings();
+            Assert.Empty(pw.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            PterodactylWings pw = new PterodactylWings();
+            pw.HoldOnion();
+            pw.HoldPeppers();
+            pw.HoldBun();
+            Assert.Contains("Hold Onions", pw.Special);
+            Assert.Contains("Hold Peppers", pw.Special);
+            Assert.Contains("Hold Bun", pw.Special);
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void AddingNuggetsShouldNotifyOfPropertyChange(string propertyName)
+        {
+            PterodactylWings pw = new PterodactylWings();
+            Assert.PropertyChanged(pw, propertyName, () =>
+            {
+                pw.HoldOnion();
+            });
+        }
     }
 }

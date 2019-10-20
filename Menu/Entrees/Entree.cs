@@ -26,10 +26,17 @@ namespace DinoDiner.Menu
         /// Gets or sets the size
         /// </summary>
         public Size Size { get; set; }
-        public string Description
+        public virtual string Description
         {
             get { return this.ToString(); }
         }
         public abstract string[] Special { get; }
+
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

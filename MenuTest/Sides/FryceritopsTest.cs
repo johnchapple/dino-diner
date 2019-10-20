@@ -3,7 +3,7 @@ using DinoDiner.Menu;
 
 namespace MenuTest.Sides
 {
-    public class SodaSaurusTest
+    public class FryceritopsTest
     {
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
@@ -82,6 +82,20 @@ namespace MenuTest.Sides
             Fryceritops ft = new Fryceritops();
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Equal("Fryceritops", ft.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Empty(ft.Special);
         }
     }
 }

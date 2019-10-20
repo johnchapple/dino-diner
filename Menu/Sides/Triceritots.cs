@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -16,6 +17,9 @@ namespace DinoDiner.Menu
 
             set
             {
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
                 size = value;
                 switch (size)
                 {
@@ -44,14 +48,14 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "Tricertitots";
+            return "Triceritots";
         }
 
         public override string Description
         {
             get
             {
-                return "Tricertitots";
+                return "Triceritots";
             }
         }
 

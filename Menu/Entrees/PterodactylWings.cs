@@ -3,6 +3,7 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -50,22 +51,25 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldPeppers()
         {
             this.peppers = false;
+            NotifyOfPropertyChanged("Special");
         }
         public void HoldOnion()
         {
             this.onions = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public override string Description
         {
             get
             {
-                return "PterodactlyWings";
+                return "Pterodactyl Wings";
             }
         }
 
@@ -74,9 +78,9 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (!this.bun) { special.Add("Hold Bun "); }
-                if (!this.peppers) { special.Add("Hold Peppers "); }
-                if (!this.onions) { special.Add("Hold Onions "); }
+                if (!this.bun) { special.Add("Hold Bun"); }
+                if (!this.peppers) { special.Add("Hold Peppers"); }
+                if (!this.onions) { special.Add("Hold Onions"); }
                 return special.ToArray();
             }
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -17,6 +18,9 @@ namespace DinoDiner.Menu
 
             set
             {
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
                 size = value;
                 switch (size)
                 {
@@ -48,11 +52,13 @@ namespace DinoDiner.Menu
 
         public void LeaveRoomForCream()
         {
+            NotifyOfPropertyChanged("Special");
             RoomForCream = true;
         }
 
         public void AddIce()
         {
+            NotifyOfPropertyChanged("Special");
             Ice = true;
         }
 
@@ -69,7 +75,8 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "JurrasicJava";
+                if (Decaf) return "Decaf Jurrasic Java";
+                return "Jurrasic Java";
             }
         }
 
@@ -78,8 +85,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (Ice) { special.Add("Add Ice "); }
-                if (Decaf) { special.Add("Decaf "); }
+                if (Ice) { special.Add("Add Ice"); }
                 if (RoomForCream) { special.Add("Leave Room for Cream"); }
                 return special.ToArray();
             }

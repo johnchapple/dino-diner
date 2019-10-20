@@ -50,8 +50,36 @@ namespace MenuTest.Entrees
         [Fact]
         public void ShouldProvideCorrectDescription()
         {
-            PrehistoricPBJUnitTest pbj = new PrehistoricPBJ();
-            Assert.Equal("Prehistoric PB&J", pbj.Description)
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Equal("Prehistoric PB&J", pbj.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldPeanutButter();
+            pbj.HoldJelly();
+            Assert.Contains("Hold Peanut Butter", pbj.Special);
+            Assert.Contains("Hold Jelly", pbj.Special);
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void AddingNuggetsShouldNotifyOfPropertyChange(string propertyName)
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, propertyName, () =>
+            {
+                pbj.HoldJelly();
+            });
         }
     }
 

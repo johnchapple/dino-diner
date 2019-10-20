@@ -110,8 +110,25 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDescription()
         {
-            JurrasicJava jj = new JurrasicJava();
-            Assert.Equal("Water", jj.Description);
+            Water w = new Water();
+            Assert.Equal("Water", w.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            Water w = new Water();
+            Assert.Empty(w.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            Water w = new Water();
+            w.HoldIce();
+            w.AddLemon();
+            Assert.Contains("Hold Ice", w.Special);
+            Assert.Contains("Add a Lemon", w.Special);
         }
     }
 }

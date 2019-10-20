@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -25,6 +26,9 @@ namespace DinoDiner.Menu
                     case Size.Large: { Price = 1.99; Calories = 32; } break;
                 }
                 if (Sweet) { Calories *= 2; }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
 
@@ -46,6 +50,7 @@ namespace DinoDiner.Menu
             Calories = 8;
             Sweet = false;
             Lemon = false;
+            Ice = true;
         }
         public override string ToString()
         {
@@ -55,6 +60,7 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         public override bool Ice { get; set; }
@@ -64,6 +70,7 @@ namespace DinoDiner.Menu
         {
             get
             {
+                if (Sweet) return "Sweet Tyrannotea";
                 return "Tyrannotea";
             }
         }
@@ -73,8 +80,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (Ice) { special.Add("Add Ice "); }
-                if (Sweet) { special.Add("Add Sugar "); }
+                if (!Ice) { special.Add("Hold Ice"); }
                 if (Lemon) { special.Add("Add a Lemon"); }
                 return special.ToArray();
             }

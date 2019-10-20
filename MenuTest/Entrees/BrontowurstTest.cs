@@ -56,7 +56,41 @@ namespace MenuTest.Entrees
             Assert.DoesNotContain<string>("Onion", bw.Ingredients);
         }
 
-        Assert.Equal("Brontowurst", jj.Description);
-    }
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.Equal("Brontowurst", bw.Description);
+        }
 
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.Empty(bw.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            Brontowurst bw = new Brontowurst();
+            bw.HoldOnion();
+            bw.HoldPeppers();
+            bw.HoldBun();
+            Assert.Contains("Hold Onions", bw.Special);
+            Assert.Contains("Hold Peppers", bw.Special);
+            Assert.Contains("Hold Bun", bw.Special);
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void AddingNuggetsShouldNotifyOfPropertyChange(string propertyName)
+        {
+            Brontowurst bw = new Brontowurst();
+            Assert.PropertyChanged(bw, propertyName, () =>
+            {
+                bw.HoldOnion();
+            });
+        }
+    }
 }

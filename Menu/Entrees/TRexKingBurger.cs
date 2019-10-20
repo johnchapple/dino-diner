@@ -3,6 +3,7 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -63,48 +64,56 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldTomato()
         {
             this.tomato = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldOnion()
         {
             this.onion = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldMayo()
         {
             this.mayo = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public override string Description
         {
             get
             {
-                return "TRexKingBurger";
+                return "T-Rex King Burger";
             }
         }
 
@@ -113,14 +122,14 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (!this.bun) { special.Add("Hold Bun "); }
-                if (!this.lettuce) { special.Add("Hold Lettuce "); }
-                if (!this.tomato) { special.Add("Hold Tomato "); }
-                if (!this.onion) { special.Add("Hold Onion "); }
-                if (!this.pickle) { special.Add("Hold Pickle "); }
-                if (!this.ketchup) { special.Add("Hold Ketchup "); }
-                if (!this.mustard) { special.Add("Hold Mustard "); }
-                if (!this.mayo) { special.Add("Hold Mayo "); }
+                if (!this.bun) { special.Add("Hold Bun"); }
+                if (!this.lettuce) { special.Add("Hold Lettuce"); }
+                if (!this.tomato) { special.Add("Hold Tomato"); }
+                if (!this.onion) { special.Add("Hold Onion"); }
+                if (!this.pickle) { special.Add("Hold Pickle"); }
+                if (!this.ketchup) { special.Add("Hold Ketchup"); }
+                if (!this.mustard) { special.Add("Hold Mustard"); }
+                if (!this.mayo) { special.Add("Hold Mayo"); }
                 return special.ToArray();
             }
         }

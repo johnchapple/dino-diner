@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -55,8 +56,30 @@ namespace DinoDiner.Menu
             return "Water";
         }
 
-        public override bool Ice { get; set; }
-        public bool Lemon { get; set; }
+        public override bool Ice
+        {
+            get
+            {
+                return Ice;
+            }
+            set
+            {
+                Ice = value;
+                NotifyOfPropertyChanged("Special");
+            }
+        }
+        public bool Lemon
+        {
+            get
+            {
+                return Lemon;
+            }
+            set
+            {
+                Lemon = value;
+                NotifyOfPropertyChanged("Special");
+            }
+        }
 
         public override string Description
         {
@@ -71,8 +94,8 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (Ice) { special.Add("Add Ice "); }
-                if (Lemon) { special.Add("Add a Lemon "); }
+                if (!Ice) { special.Add("Hold Ice"); }
+                if (Lemon) { special.Add("Add a Lemon"); }
                 return special.ToArray();
             }
         }

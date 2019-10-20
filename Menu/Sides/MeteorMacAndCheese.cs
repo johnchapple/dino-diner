@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -16,6 +17,9 @@ namespace DinoDiner.Menu
 
             set
             {
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
                 size = value;
                 switch (size)
                 {
@@ -52,7 +56,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "MeteorMacAndCheese";
+                return "Meteor Mac and Cheese";
             }
         }
 

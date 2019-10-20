@@ -111,7 +111,48 @@ namespace MenuTest.Drinks
         public void ShouldHaveCorrectDescription()
         {
             JurrasicJava jj = new JurrasicJava();
-            Assert.Equal("JurrasicJava", jj.Description);
+            Assert.Equal("Jurrasic Java", jj.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectDecafDescription()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.Decaf = true;
+            Assert.Equal("Decaf Jurrasic Java", jj.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            Assert.Empty(jj.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveIceSpecial()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.AddIce();
+            Assert.Contains("Add Ice", jj.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveRoomForCreamSpecial()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.LeaveRoomForCream();
+            Assert.Contains("Leave Room for Cream", jj.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            JurrasicJava jj = new JurrasicJava();
+            jj.LeaveRoomForCream();
+            jj.AddIce();
+            Assert.Contains("Leave Room for Cream", jj.Special);
+            Assert.Contains("Add Ice", jj.Special);
         }
     }
 }

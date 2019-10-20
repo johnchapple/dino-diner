@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -31,7 +32,7 @@ namespace DinoDiner.Menu
         /// Gets or sets whether there is ice or not
         /// </summary>
         public abstract bool Ice { get; set; }
-        public string Description
+        public virtual string Description
         {
             get { return this.ToString(); }
         }
@@ -39,6 +40,7 @@ namespace DinoDiner.Menu
 
         public void HoldIce()
         {
+            NotifyOfPropertyChanged("Special");
             Ice = false;
         }
 
@@ -47,5 +49,11 @@ namespace DinoDiner.Menu
             return "Drink";
         }
 
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

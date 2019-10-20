@@ -151,8 +151,25 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDescription()
         {
-            JurrasicJava jj = new JurrasicJava();
-            Assert.Equal("Tyrannotea", jj.Description);
+            Tyrannotea tt = new Tyrannotea();
+            Assert.Equal("Tyrannotea", tt.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            Assert.Empty(tt.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            Tyrannotea tt = new Tyrannotea();
+            tt.HoldIce();
+            tt.AddLemon();
+            Assert.Contains("Hold Ice", tt.Special);
+            Assert.Contains("Add a Lemon", tt.Special);
         }
     }
 }

@@ -103,8 +103,23 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDescription()
         {
-            JurrasicJava jj = new JurrasicJava();
-            Assert.Equal("Sodasaurus", jj.Description);
+            Sodasaurus ss = new Sodasaurus();
+            Assert.Equal("Sodasaurus", ss.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            Sodasaurus ss = new Sodasaurus();
+            Assert.Empty(ss.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            Sodasaurus ss = new Sodasaurus();
+            ss.HoldIce();
+            Assert.Contains("Hold Ice", ss.Special);
         }
     }
 }

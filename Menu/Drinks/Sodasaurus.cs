@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -17,6 +18,9 @@ namespace DinoDiner.Menu
 
             set
             {
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
                 size = value;
                 switch (size)
                 {
@@ -40,6 +44,7 @@ namespace DinoDiner.Menu
         }
         public Sodasaurus()
         {
+            Ice = true;
             Price = 1.50;
             Calories = 112;
         }
@@ -66,7 +71,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (Ice) { special.Add("Add Ice "); }
+                if (!Ice) { special.Add("Hold Ice"); }
                 return special.ToArray();
             }
         }

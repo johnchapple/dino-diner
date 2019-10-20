@@ -67,11 +67,11 @@ namespace MenuTest.Entrees
         {
             DinoNuggets dn = new DinoNuggets();
             dn.AddNugget();
-            Assert.Equal(dn.Price, 4.50, 2);
+            Assert.Equal(4.84, dn.Price, 2);
             dn.AddNugget();
-            Assert.Equal(dn.Price, 4.75, 2);
+            Assert.Equal(5.43, dn.Price, 2);
             dn.AddNugget();
-            Assert.Equal(dn.Price, 5.0, 2);
+            Assert.Equal(6.02, dn.Price, 2);
         }
 
         [Fact]
@@ -87,9 +87,16 @@ namespace MenuTest.Entrees
         }
 
         [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            DinoNuggets dn = new DinoNuggets();
+            Assert.Equal("DinoNuggets", dn.Description);
+        }
+
+        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
-            DinoNuggetsUnitTest dn = new DinoNuggets();
+            DinoNuggets dn = new DinoNuggets();
             Assert.Empty(dn.Special);
         }
 
@@ -100,15 +107,15 @@ namespace MenuTest.Entrees
         [InlineData(16)]
         public void ShouldHaveCorrectDescriptionForExtraNuggets(int extraNuggets)
         {
-            DinoNuggetsUnitTest dn = new DinoNuggets();
-            for(int i = 0; i < extraNuggets; i++)
+            DinoNuggets dn = new DinoNuggets();
+            for (int i = 0; i < extraNuggets; i++)
             {
                 dn.AddNugget();
             }
             Assert.Collection<string>(dn.Special, item =>
             {
                 Assert.Equal($"{extraNuggets} Extra Nuggets", item);
-            }
+            });
         }
 
         [Theory]
@@ -116,7 +123,7 @@ namespace MenuTest.Entrees
         [InlineData("Price")]
         public void AddingNuggetsShouldNotifyOfPropertyChange(string propertyName)
         {
-            DinoNuggetsUnitTest dn = new DinoNuggets();
+            DinoNuggets dn = new DinoNuggets();
             Assert.PropertyChanged(dn, propertyName, () =>
             {
                 dn.AddNugget();

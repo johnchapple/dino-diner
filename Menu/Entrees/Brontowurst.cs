@@ -3,6 +3,7 @@
  */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -59,6 +60,7 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.Bun = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -67,6 +69,7 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.Peppers = false;
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// public void HoldBun lets us remove the onion from the item
@@ -74,6 +77,7 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.Onions = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public override string Description
@@ -89,8 +93,8 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (!this.Onions) { special.Add("Hold Onions "); }
-                if (!this.Peppers) { special.Add("Hold Peppers "); }
+                if (!this.Onions) { special.Add("Hold Onions"); }
+                if (!this.Peppers) { special.Add("Hold Peppers"); }
                 if (!this.Bun) { special.Add("Hold Bun"); }
                 return special.ToArray();
             }

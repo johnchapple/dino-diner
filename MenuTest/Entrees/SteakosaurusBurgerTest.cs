@@ -64,6 +64,45 @@ namespace MenuTest.Entrees
             sb.HoldMustard();
             Assert.DoesNotContain<string>("Mustard", sb.Ingredients);
         }
+
+        [Fact]
+        public void ShouldHaveCorrectDescription()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Equal("Steakosaurus Burger", sb.Description);
+        }
+
+        [Fact]
+        public void ShouldHaveEmptySpecialByDefault()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Empty(sb.Special);
+        }
+
+        [Fact]
+        public void ShouldHaveAllSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            sb.HoldKetchup();
+            sb.HoldBun();
+            sb.HoldMustard();
+            Assert.Contains("Hold Pickle", sb.Special);
+            Assert.Contains("Hold Ketchup", sb.Special);
+            Assert.Contains("Hold Bun", sb.Special);
+            Assert.Contains("Hold Mustard", sb.Special);
+        }
+
+        [Theory]
+        [InlineData("Special")]
+        public void AddingNuggetsShouldNotifyOfPropertyChange(string propertyName)
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.PropertyChanged(sb, propertyName, () =>
+            {
+                sb.HoldPickle();
+            });
+        }
     }
 
 }

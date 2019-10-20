@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -28,11 +29,13 @@ namespace DinoDiner.Menu
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public void HoldJelly()
         {
             this.jelly = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         public override string ToString()
@@ -44,7 +47,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "PrehistoricPBJ";
+                return "Prehistoric PB&J";
             }
         }
 
@@ -53,10 +56,17 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (!this.jelly) { special.Add("Hold Jelly "); }
-                if (!this.peanutButter) { special.Add("Hold Peanut Butter "); }
+                if (!this.jelly) { special.Add("Hold Jelly"); }
+                if (!this.peanutButter) { special.Add("Hold Peanut Butter"); }
                 return special.ToArray();
             }
+        }
+
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
