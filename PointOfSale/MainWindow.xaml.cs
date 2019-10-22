@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -23,6 +24,20 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+            Order order = DataContext as Order;
+            if (order != null)
+            {
+                order.Items.Add(new DinoNuggets());
+                order.Items.Add(new Sodasaurus());
+                order.Items.Add(new Fryceritops());
+                Triceritots tots = new Triceritots();
+                tots.Size = DinoDiner.Menu.Size.Large;
+                order.Items.Add(tots);
+                SteakosaurusBurger sb = new SteakosaurusBurger();
+                sb.HoldMustard();
+                order.Items.Add(sb);
+
+            }
         }
     }
 }
