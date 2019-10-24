@@ -1,14 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class Order
+    public class Order : INotifyPropertyChanged
     {
         public ObservableCollection<IOrderItem> Items;
 
+        public Order()
+        {
+            this.Items = new ObservableCollection<IOrderItem>();
+            this.Items.CollectionChanged += this.OnCollectionChanged;
+
+        }
+
+        public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            NotifyOfPropertyChanged("SubtotalCost");
+        }
         public double SubtotalCost
         {
             get
