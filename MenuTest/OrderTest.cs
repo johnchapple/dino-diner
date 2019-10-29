@@ -13,11 +13,9 @@ namespace MenuTest
         public void ShouldCalculatePrice()
         {
             Order o = new Order();
-            ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
-            items.Add(new JurrasicJava());
-            items.Add(new Brontowurst());
-            items.Add(new Triceritots());
-            o.Items = items;
+            o.Add(new JurrasicJava());
+            o.Add(new Brontowurst());
+            o.Add(new Triceritots());
             Assert.Equal<double>(6.94, o.SubtotalCost);
         }
     }

@@ -9,16 +9,45 @@ namespace DinoDiner.Menu
 {
     public class Order : INotifyPropertyChanged
     {
-        public ObservableCollection<IOrderItem> Items;
+        public List<IOrderItem> items = new List<IOrderItem>();
 
         public Order()
         {
-            this.Items = new ObservableCollection<IOrderItem>();
-            this.Items.CollectionChanged += this.OnCollectionChanged;
-
         }
+        
+        public IOrderItem[] Items {  get { return items.ToArray(); } }
 
         public virtual event PropertyChangedEventHandler PropertyChanged;
+
+        public void Add(IOrderItem item)
+        {
+            item.PropertyChanged += OnPropertyChanged;
+            items.Add(item);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+        }
+
+        public bool Remove(IOrderItem item)
+        {
+            bool removed = items.Remove(item);
+            if (removed)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+            }
+            return removed;
+        }
+
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+        }
 
         protected virtual void NotifyOfPropertyChanged(string propertyName)
         {

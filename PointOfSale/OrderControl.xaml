@@ -24,7 +24,8 @@
                    Grid.Column="1"
                    FontWeight="Bold"
                    Margin="5,0,0,0"/>
-        <ListBox Grid.Row="1"
+        <ListBox Name="OrderItems" 
+                 Grid.Row="1"
                  Grid.ColumnSpan="2"
                  ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
@@ -34,9 +35,13 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
                         <TextBlock Text="{Binding Path=Description}"/>
-                        <ListBox ItemsSource="{Binding Path=Special}"/>
-                        <Button Grid.Column="1"></Button>
+                        <ListBox Grid.Row="1"  ItemsSource="{Binding Path=Special}"/>
+                        <Button Grid.Column="1" Click="OnRemoveOrderItem">X</Button>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -45,7 +50,7 @@
                    Grid.Row="2"
                    TextAlignment="Right"
                    FontWeight="Bold"/>
-        <TextBlock Text="{Binding Path=SubTotalCost}"
+        <TextBlock Text="{Binding Path=SubtotalCost}"
                    Grid.Row="2"
                    Grid.Column="1"
                    FontWeight="Bold"/>

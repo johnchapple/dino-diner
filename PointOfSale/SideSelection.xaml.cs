@@ -21,24 +21,31 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        private Side side;
         public SideSelection()
         {
             InitializeComponent();
+        }
+
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            this.side = side;
         }
 
         public void AddFryceritops(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
-                order.Items.Add(new Fryceritops());
+                order.Add(new Fryceritops());
             }
         }
 
         public void MakeLarge(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
+            if (side != null)
             {
-                //if (CollectionViewSource)
+                side.Size = DinoDiner.Menu.Size.Large;
             }
         }
     }

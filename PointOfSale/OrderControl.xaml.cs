@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,16 +25,9 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            MountItemListener();
         }
 
-        private void MountItemListener()
-        {
-            if (DataContext is Order order)
-            {
-                order.Items.CollectionChanged += OnCollectionChanged;
-            }
-        }
+        public NavigationService NavigationService { get; set; }
 
         public void OnCollectionChanged(object sender, EventArgs args)
         {
@@ -42,7 +36,10 @@ namespace PointOfSale
 
         public void OnSeletionChanged(object sender, EventArgs args)
         {
-            //if (OrderItem.)
+            if (OrderItems.SelectedItem is Side side)
+            {
+                NavigationService?.Navigate(new SideSelection(side));
+            }
         }
 
         public void OnDataContextChanged(DataObjectEventArgs sender, DependencyPropertyChangedEventArgs Args)
@@ -50,7 +47,9 @@ namespace PointOfSale
             //MountEventListener();
         }
 
-        private void OnRemoveORderItem(object sender, RoutedEventArgs args)
+
+
+        private void OnRemoveOrderItem(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -58,7 +57,7 @@ namespace PointOfSale
                 {
                     if (element.DataContext is IOrderItem item)
                     {
-                        order.Items.Remove(item);
+                        order.Remove(item);
                     }
                 }
             }
