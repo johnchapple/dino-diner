@@ -57,7 +57,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Mezzorella Sticks";
+                return $"{Size} Mezzorella Sticks";
             }
         }
 

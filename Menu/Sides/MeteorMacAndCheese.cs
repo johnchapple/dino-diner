@@ -56,7 +56,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Meteor Mac and Cheese";
+                return $"{Size} Meteor Mac and Cheese";
             }
         }
 

@@ -47,8 +47,6 @@ namespace PointOfSale
             //MountEventListener();
         }
 
-
-
         private void OnRemoveOrderItem(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -61,6 +59,12 @@ namespace PointOfSale
                     }
                 }
             }
+        }
+
+        public void CancelOrder(object sender, RoutedEventArgs args)
+        {
+            NavigationService?.Navigate(new MenuCategorySelection());
+            Order order = DataContext as Order;
         }
     }
 }

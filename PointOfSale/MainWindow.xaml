@@ -15,6 +15,6 @@
                             DockPanel.Dock="Right" 
                             Width="200" 
                             Background="LightSteelBlue"/>
-        <Frame Source="MenuCategorySelection.xaml"></Frame>
+        <Frame Source="MenuCategorySelection.xaml" Name="OrderUI" LoadCompleted="OnLoadCompletion" DataContextChanged="OnDataContextChanged"></Frame>
     </DockPanel>
 </Window>

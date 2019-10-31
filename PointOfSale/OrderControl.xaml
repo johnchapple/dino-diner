@@ -32,7 +32,7 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="170" />
                             <ColumnDefinition Width="20" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -40,7 +40,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding Path=Description}"/>
-                        <ListBox Grid.Row="1"  ItemsSource="{Binding Path=Special}"/>
+                        <ListBox Grid.Row="1" BorderThickness="0" ItemsSource="{Binding Path=Special}"/>
                         <Button Grid.Column="1" Click="OnRemoveOrderItem">X</Button>
                     </Grid>
                 </DataTemplate>
@@ -54,7 +54,7 @@
                    Grid.Row="2"
                    Grid.Column="1"
                    FontWeight="Bold"/>
-        <Button Grid.Row="3">Cancel</Button>
+        <Button Grid.Row="3" Click="CancelOrder">Cancel</Button>
         <Button Grid.Row="3" Grid.Column="1">Pay</Button>
     </Grid>
 </UserControl>

@@ -37,7 +37,35 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(new Fryceritops());
+                this.side = new Fryceritops();
+                order.Add(this.side);
+            }
+        }
+
+        public void AddMeteor(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                this.side = new MeteorMacAndCheese();
+                order.Add(this.side);
+            }
+        }
+
+        public void AddMezz(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                this.side = new MezzorellaSticks();
+                order.Add(this.side);
+            }
+        }
+
+        public void AddTriceritots(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                this.side = new Triceritots();
+                order.Add(this.side);
             }
         }
 
@@ -46,6 +74,22 @@ namespace PointOfSale
             if (side != null)
             {
                 side.Size = DinoDiner.Menu.Size.Large;
+            }
+        }
+
+        public void MakeMedium(object sender, RoutedEventArgs args)
+        {
+            if (side != null)
+            {
+                side.Size = DinoDiner.Menu.Size.Medium;
+            }
+        }
+
+        public void MakeSmall(object sender, RoutedEventArgs args)
+        {
+            if (side != null)
+            {
+                side.Size = DinoDiner.Menu.Size.Small;
             }
         }
     }

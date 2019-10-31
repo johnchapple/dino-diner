@@ -4,10 +4,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
+      xmlns:menu="clr-namespace:DinoDiner.Menu;assembly=Menu"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EntreeSelection">
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,25 +19,25 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">
+        <Button Grid.Row="0" Grid.Column="0" Click="AddBrontowurst">
             Brontowurst
         </Button>
-        <Button Grid.Row="0" Grid.Column="1">
+        <Button Grid.Row="0" Grid.Column="1" Click="AddDinoNuggets">
             Dino-Nuggets
         </Button>
-        <Button Grid.Row="0" Grid.Column="2">
+        <Button Grid.Row="0" Grid.Column="2" Click="AddPrehistoricPBJ">
             Prehistoric PBJ
         </Button>
-        <Button Grid.Row="1" Grid.Column="0">
+        <Button Grid.Row="1" Grid.Column="0" Click="AddPterodactylWings">
             Pterodactyl Wings
         </Button>
-        <Button Grid.Row="1" Grid.Column="1">
+        <Button Grid.Row="1" Grid.Column="1" Click="AddSteakosaurusBurger">
             Steakosaurus Burger
         </Button>
-        <Button Grid.Row="1" Grid.Column="2">
+        <Button Grid.Row="1" Grid.Column="2" Click="AddTRexKingBurger">
             T-Rex Kingburger
         </Button>
-        <Button Grid.Row="2" Grid.Column="0">
+        <Button Grid.Row="2" Grid.Column="0" Click="AddVelociWrap">
             Veloci-Wrap
         </Button>
     </Grid>

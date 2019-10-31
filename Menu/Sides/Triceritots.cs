@@ -55,7 +55,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Triceritots";
+                return $"{Size} Triceritots";
             }
         }
 

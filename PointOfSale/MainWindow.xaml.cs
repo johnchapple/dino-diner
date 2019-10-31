@@ -39,5 +39,24 @@ namespace PointOfSale
 
             }
         }
+
+        private void PassOnDataContext()
+        {
+            Page page = OrderUI.Content as Page;
+            if(page != null)
+            {
+                page.DataContext = OrderUI.DataContext;
+            }
+        }
+
+        public void OnLoadCompletion(object sender, NavigationEventArgs args)
+        {
+            PassOnDataContext();
+        }
+
+        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            PassOnDataContext();
+        }
     }
 }
