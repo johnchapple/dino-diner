@@ -21,8 +21,8 @@ namespace DinoDiner.Menu
 
         public void Add(IOrderItem item)
         {
-            item.PropertyChanged += OnPropertyChanged;
             items.Add(item);
+            item.PropertyChanged += OnPropertyChanged;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
@@ -34,6 +34,7 @@ namespace DinoDiner.Menu
             bool removed = items.Remove(item);
             if (removed)
             {
+                item.PropertyChanged -= OnPropertyChanged;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
@@ -44,6 +45,7 @@ namespace DinoDiner.Menu
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));

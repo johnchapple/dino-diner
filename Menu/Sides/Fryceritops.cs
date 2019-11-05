@@ -17,9 +17,6 @@ namespace DinoDiner.Menu
 
             set
             {
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
-                NotifyOfPropertyChanged("Size");
                 size = value;
                 switch(size)
                 {
@@ -27,6 +24,9 @@ namespace DinoDiner.Menu
                     case Size.Medium: { Price = 1.45; Calories = 365; } break;
                     case Size.Large: { Price = 1.95; Calories = 480; } break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
             }
         }
 

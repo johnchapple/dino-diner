@@ -22,6 +22,7 @@ namespace PointOfSale
     public partial class SideSelection : Page
     {
         private Side side;
+
         public SideSelection()
         {
             InitializeComponent();
