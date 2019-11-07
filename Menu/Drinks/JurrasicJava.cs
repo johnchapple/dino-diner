@@ -78,8 +78,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                if (Decaf) return "Decaf Jurrasic Java";
-                return "Jurrasic Java";
+                return this.ToString();
             }
         }
 

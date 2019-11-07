@@ -108,21 +108,6 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void ShouldHaveCorrectDescription()
-        {
-            JurassicJava jj = new JurassicJava();
-            Assert.Equal("Jurrasic Java", jj.Description);
-        }
-
-        [Fact]
-        public void ShouldHaveCorrectDecafDescription()
-        {
-            JurassicJava jj = new JurassicJava();
-            jj.Decaf = true;
-            Assert.Equal("Decaf Jurrasic Java", jj.Description);
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
             JurassicJava jj = new JurassicJava();

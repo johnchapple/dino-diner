@@ -85,13 +85,6 @@ namespace MenuTest.Sides
         }
 
         [Fact]
-        public void ShouldHaveCorrectDescription()
-        {
-            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
-            Assert.Equal("Meteor Mac and Cheese", mmc.Description);
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();

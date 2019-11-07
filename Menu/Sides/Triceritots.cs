@@ -56,7 +56,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Triceritots";
+                return this.ToString();
             }
         }
 

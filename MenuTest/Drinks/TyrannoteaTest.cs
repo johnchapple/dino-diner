@@ -149,13 +149,6 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void ShouldHaveCorrectDescription()
-        {
-            Tyrannotea tt = new Tyrannotea();
-            Assert.Equal("Tyrannotea", tt.Description);
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
             Tyrannotea tt = new Tyrannotea();

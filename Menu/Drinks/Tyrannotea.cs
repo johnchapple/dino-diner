@@ -83,7 +83,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Tyrannotea";
+                return this.ToString();
             }
         }
 

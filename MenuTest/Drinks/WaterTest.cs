@@ -108,13 +108,6 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void ShouldHaveCorrectDescription()
-        {
-            Water w = new Water();
-            Assert.Equal("Water", w.Description);
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
             Water w = new Water();

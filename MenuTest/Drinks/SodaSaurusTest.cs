@@ -101,13 +101,6 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void ShouldHaveCorrectDescription()
-        {
-            Sodasaurus ss = new Sodasaurus();
-            Assert.Equal("Sodasaurus", ss.Description);
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
             Sodasaurus ss = new Sodasaurus();

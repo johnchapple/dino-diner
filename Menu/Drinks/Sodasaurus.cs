@@ -75,7 +75,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Sodasaurus";
+                return this.ToString();
             }
         }
 

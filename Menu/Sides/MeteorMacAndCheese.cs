@@ -57,7 +57,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Meteor Mac and Cheese";
+                return this.ToString();
             }
         }
 

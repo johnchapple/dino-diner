@@ -85,13 +85,6 @@ namespace MenuTest.Sides
         }
 
         [Fact]
-        public void ShouldHaveCorrectDescription()
-        {
-            Triceritots tt = new Triceritots();
-            Assert.Equal("Triceritots", tt.Description);
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
             Triceritots tt = new Triceritots();

@@ -85,13 +85,6 @@ namespace MenuTest.Sides
         }
 
         [Fact]
-        public void ShouldHaveCorrectDescription()
-        {
-            MezzorellaSticks ms = new MezzorellaSticks();
-            Assert.Equal("Mezzorella Sticks", ms.Description);
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
             MezzorellaSticks ms = new MezzorellaSticks();

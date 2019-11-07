@@ -85,13 +85,6 @@ namespace MenuTest.Sides
         }
 
         [Fact]
-        public void ShouldHaveCorrectDescription()
-        {
-            Fryceritops ft = new Fryceritops();
-            Assert.Equal("Fryceritops", ft.Description);
-        }
-
-        [Fact]
         public void ShouldHaveEmptySpecialByDefault()
         {
             Fryceritops ft = new Fryceritops();

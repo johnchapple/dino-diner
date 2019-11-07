@@ -58,7 +58,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Mezzorella Sticks";
+                return this.ToString();
             }
         }
 
