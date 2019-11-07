@@ -375,7 +375,7 @@ namespace MenuTest
         }
 
         [Fact]
-        public void JurrasicJavaAddIceShouldNotifyPropertySpecial()
+        public void JurassicJavaAddIceShouldNotifyPropertySpecial()
         {
             JurassicJava java = new JurassicJava();
             Assert.PropertyChanged(java, "Special", () =>
@@ -385,7 +385,7 @@ namespace MenuTest
         }
 
         [Fact]
-        public void JurrasicJavaLeaveRoomForCreamShouldNotifyPropertySpecial()
+        public void JurassicJavaLeaveRoomForCreamShouldNotifyPropertySpecial()
         {
             JurassicJava java = new JurassicJava();
             Assert.PropertyChanged(java, "Special", () =>

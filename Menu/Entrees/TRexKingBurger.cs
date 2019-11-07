@@ -55,7 +55,7 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "TRexKingBurger";
+            return "T-Rex King Burger";
         }
 
         /// <summary>

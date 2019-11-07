@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -25,9 +26,81 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        private void NewCombo(object sender, RoutedEventArgs e)
+        public void BrontoCombo(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ComboCustomize());
+            if (DataContext is Order order)
+            {
+                Brontowurst bw = new Brontowurst();
+                CretaceousCombo c = new CretaceousCombo(bw);
+                order.Add(c);
+                NavigationService.Navigate(new ComboCustomize(c));
+            }
+        }
+
+        public void SteakCombo(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger bw = new SteakosaurusBurger();
+                CretaceousCombo c = new CretaceousCombo(bw);
+                order.Add(c);
+                NavigationService.Navigate(new ComboCustomize(c));
+            }
+        }
+
+        public void TRexCombo(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                TRexKingBurger bw = new TRexKingBurger();
+                CretaceousCombo c = new CretaceousCombo(bw);
+                order.Add(c);
+                NavigationService.Navigate(new ComboCustomize(c));
+            }
+        }
+
+        public void PrehistoricCombo(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                PrehistoricPBJ bw = new PrehistoricPBJ();
+                CretaceousCombo c = new CretaceousCombo(bw);
+                order.Add(c);
+                NavigationService.Navigate(new ComboCustomize(c));
+            }
+        }
+
+        public void PterCombo(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                PterodactylWings bw = new PterodactylWings();
+                CretaceousCombo c = new CretaceousCombo(bw);
+                order.Add(c);
+                NavigationService.Navigate(new ComboCustomize(c));
+            }
+        }
+
+        public void VelociCombo(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                VelociWrap bw = new VelociWrap();
+                CretaceousCombo c = new CretaceousCombo(bw);
+                order.Add(c);
+                NavigationService.Navigate(new ComboCustomize(c));
+            }
+        }
+
+        public void NuggetsCombo(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                DinoNuggets bw = new DinoNuggets();
+                CretaceousCombo c = new CretaceousCombo(bw);
+                order.Add(c);
+                NavigationService.Navigate(new ComboCustomize(c));
+            }
         }
     }
 }

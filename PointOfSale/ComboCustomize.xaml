@@ -18,20 +18,20 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="1" Grid.Column="0">
+        <Button Grid.Row="1" Grid.Column="0" Click="MakeSmall">
             Small
         </Button>
-        <Button Grid.Row="1" Grid.Column="1">
+        <Button Grid.Row="1" Grid.Column="1" Click="MakeMedium">
             Medium
         </Button>
-        <Button Grid.Row="1" Grid.Column="2">
+        <Button Grid.Row="1" Grid.Column="2" Click="MakeLarge">
             Large
         </Button>
         <Button Grid.Row="0" Grid.Column="0" Click="ChooseSide">
-            Friceritops
+            Side
         </Button>
         <Button Grid.Row="0" Grid.Column="2" Click="ChooseDrink">
-            Sodasaurus
+            Drink
         </Button>
     </Grid>
 </Page>

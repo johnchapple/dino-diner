@@ -29,6 +29,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -53,7 +54,8 @@ namespace DinoDiner.Menu
         }
         public override string ToString()
         {
-            return "Tyrannotea";
+            if (Sweet) return $"{Size} Sweet Tyrannotea";
+            return $"{Size} Tyrannotea";
         }
 
         public void AddLemon()
@@ -81,8 +83,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                if (Sweet) return $"Sweet {Size} Tyrannotea";
-                return $"{Size} Tyrannotea";
+                return "Tyrannotea";
             }
         }
 

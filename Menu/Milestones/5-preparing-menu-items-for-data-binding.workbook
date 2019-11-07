@@ -26,9 +26,9 @@ For the special properties, use Title Case (capitalized and spaced) strings for 
 
 For Dino-Nuggets, use a single string "# Extra Nuggets" where # is the number of nuggets above 6 for the special case of extra nuggets.
 
-For Tyrannotea and JurrasicJava, the "Sweet" and "Decaf" properties are integrated into the description, and should _not_ be included in the special list.  
+For Tyrannotea and JurassicJava, the "Sweet" and "Decaf" properties are integrated into the description, and should _not_ be included in the special list.  
 
-Specials for Drinks should use "Hold Ice", except JurrasicJava, which would use "Add Ice".  Additionally, Water and Tyrannotea have "Add Lemon" as an option.
+Specials for Drinks should use "Hold Ice", except JurassicJava, which would use "Add Ice".  Additionally, Water and Tyrannotea have "Add Lemon" as an option.
 
 Sides do not currently have special instructions, and should return an empty string array for their Special property.
 

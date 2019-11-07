@@ -45,7 +45,7 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "DinoNuggets";
+            return "Dino-Nuggets";
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace DinoDiner.Menu
                 List<string> special = new List<string>();
                 if (nuggetCount > 6)
                 {
-                    special.Add($"{nuggetCount-=6} Extra Nuggets");
+                    special.Add($"{nuggetCount-6} Extra Nuggets");
                 }
                 
                 return special.ToArray();

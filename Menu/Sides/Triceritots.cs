@@ -25,6 +25,7 @@ namespace DinoDiner.Menu
                     case Size.Large: { Price = 1.95; Calories = 590; } break;
                 }
                 NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Size");
             }
@@ -48,14 +49,14 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "Triceritots";
+            return $"{Size} Triceritots";
         }
 
         public override string Description
         {
             get
             {
-                return $"{Size} Triceritots";
+                return "Triceritots";
             }
         }
 

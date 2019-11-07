@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         private Size size;
 
@@ -28,6 +28,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -41,7 +42,7 @@ namespace DinoDiner.Menu
                 return newIngredients;
             }
         }
-        public JurrasicJava()
+        public JurassicJava()
         {
             Price = 0.59;
             Calories = 2;
@@ -69,15 +70,16 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "JurrasicJava";
+            if (Decaf) return $"{size} Decaf Jurassic Java";
+            return $"{size} Jurassic Java";
         }
 
         public override string Description
         {
             get
             {
-                if (Decaf) return $"Decaf {Size} Jurrasic Java";
-                return $"{Size} Jurrasic Java";
+                if (Decaf) return "Decaf Jurrasic Java";
+                return "Jurrasic Java";
             }
         }
 

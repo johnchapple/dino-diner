@@ -28,6 +28,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -50,14 +51,14 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "Mezzorella Sticks";
+            return $"{Size} Mezzorella Sticks";
         }
 
         public override string Description
         {
             get
             {
-                return $"{Size} Mezzorella Sticks";
+                return "Mezzorella Sticks";
             }
         }
 

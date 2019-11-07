@@ -22,6 +22,7 @@ namespace PointOfSale
     public partial class SideSelection : Page
     {
         private Side side;
+        private CretaceousCombo combo;
 
         public SideSelection()
         {
@@ -33,13 +34,18 @@ namespace PointOfSale
             InitializeComponent();
             this.side = side;
         }
+        public SideSelection(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+        }
 
         public void AddFryceritops(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 this.side = new Fryceritops();
-                order.Add(this.side);
+                if (this.combo != null) { combo.Side = this.side; } else { order.Add(this.side); }
             }
         }
 
@@ -48,7 +54,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 this.side = new MeteorMacAndCheese();
-                order.Add(this.side);
+                if (this.combo != null) { combo.Side = this.side; } else { order.Add(this.side); }
             }
         }
 
@@ -57,7 +63,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 this.side = new MezzorellaSticks();
-                order.Add(this.side);
+                if (this.combo != null) { combo.Side = this.side; } else { order.Add(this.side); }
             }
         }
 
@@ -66,7 +72,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 this.side = new Triceritots();
-                order.Add(this.side);
+                if (this.combo != null) { combo.Side = this.side; } else { order.Add(this.side); }
             }
         }
 
@@ -75,7 +81,6 @@ namespace PointOfSale
             if (side != null)
             {
                 side.Size = DinoDiner.Menu.Size.Large;
-                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
 
@@ -84,7 +89,6 @@ namespace PointOfSale
             if (side != null)
             {
                 side.Size = DinoDiner.Menu.Size.Medium;
-                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
 
@@ -93,8 +97,12 @@ namespace PointOfSale
             if (side != null)
             {
                 side.Size = DinoDiner.Menu.Size.Small;
-                NavigationService.Navigate(new MenuCategorySelection());
             }
+        }
+
+        public void GoHome(object sender, RoutedEventArgs args)
+        {
+            if (this.combo != null) { NavigationService.Navigate(new ComboCustomize(this.combo)); } else { NavigationService.Navigate(new MenuCategorySelection()); }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
             {
                 List<IMenuItem> menulist = new List<IMenuItem>();
 
-                menulist.Add(new JurrasicJava());
+                menulist.Add(new JurassicJava());
                 menulist.Add(new Sodasaurus());
                 menulist.Add(new Tyrannotea());
                 menulist.Add(new Water());
@@ -60,7 +60,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<IMenuItem> menulist = new List<IMenuItem>();
-                menulist.Add(new JurrasicJava());
+                menulist.Add(new JurassicJava());
                 menulist.Add(new Sodasaurus());
                 menulist.Add(new Tyrannotea());
                 menulist.Add(new Water());

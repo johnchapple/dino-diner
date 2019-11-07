@@ -13,7 +13,7 @@ namespace MenuTest
         public void ShouldCalculatePrice()
         {
             Order o = new Order();
-            o.Add(new JurrasicJava());
+            o.Add(new JurassicJava());
             o.Add(new Brontowurst());
             o.Add(new Triceritots());
             Assert.Equal<double>(6.94, o.SubtotalCost);

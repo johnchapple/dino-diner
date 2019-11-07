@@ -22,6 +22,7 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
         private Drink drink;
+        private CretaceousCombo combo;
         public DrinkSelection()
         {
             InitializeComponent();
@@ -35,6 +36,13 @@ namespace PointOfSale
             EvaluateButtons();
         }
 
+        public DrinkSelection(CretaceousCombo c)
+        {
+            InitializeComponent();
+            this.combo = c;
+            EvaluateButtons();
+        }
+
         private void chooseFlavor(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new FlavorSelection(this.drink as Sodasaurus));
@@ -45,7 +53,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 this.drink = new Sodasaurus();
-                order.Add(this.drink);
+                if (this.combo != null) { combo.Drink = this.drink; } else { order.Add(this.drink); }
                 EvaluateButtons();
             }
         }
@@ -55,7 +63,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 this.drink = new Tyrannotea();
-                order.Add(this.drink);
+                if (this.combo != null) { combo.Drink = this.drink; } else { order.Add(this.drink); }
                 EvaluateButtons();
             }
         }
@@ -64,8 +72,8 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                this.drink = new JurrasicJava();
-                order.Add(this.drink);
+                this.drink = new JurassicJava();
+                if (this.combo != null) { combo.Drink = this.drink; } else { order.Add(this.drink); }
                 EvaluateButtons();
             }
         }
@@ -75,7 +83,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 this.drink = new Water();
-                order.Add(this.drink);
+                if (this.combo != null) { combo.Drink = this.drink; } else { order.Add(this.drink); }
                 EvaluateButtons();
             }
         }
@@ -107,7 +115,7 @@ namespace PointOfSale
         public void ToggleIce(object sender, RoutedEventArgs args)
         {
             {
-                if (this.drink is JurrasicJava jj)
+                if (this.drink is JurassicJava jj)
                 {
                     jj.AddIce();
                 }
@@ -134,7 +142,7 @@ namespace PointOfSale
 
         public void ToggleDecaf(object sender, RoutedEventArgs args)
         {
-            if (this.drink is JurrasicJava jj)
+            if (this.drink is JurassicJava jj)
             {
                 jj.Decaf = !jj.Decaf;
             }
@@ -142,7 +150,7 @@ namespace PointOfSale
 
         public void LeaveRoomForCream(object sender, RoutedEventArgs args)
         {
-            if (this.drink is JurrasicJava jj)
+            if (this.drink is JurassicJava jj)
             {
                 jj.LeaveRoomForCream();
             }
@@ -157,7 +165,7 @@ namespace PointOfSale
         }
         public void GoHome(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            if (this.combo != null) { NavigationService.Navigate(new ComboCustomize(this.combo)); } else { NavigationService.Navigate(new MenuCategorySelection()); }
         }
 
         public void EvaluateButtons()
@@ -174,7 +182,7 @@ namespace PointOfSale
                 Ice.IsEnabled = true; Ice.Visibility = Visibility.Visible;
             }
 
-            if (this.drink is JurrasicJava) {
+            if (this.drink is JurassicJava) {
                 Decaf.IsEnabled = true; Decaf.Visibility = Visibility.Visible;
                 Cream.IsEnabled = true; Cream.Visibility = Visibility.Visible;
                 Ice.IsEnabled = true; Ice.Visibility = Visibility.Visible;

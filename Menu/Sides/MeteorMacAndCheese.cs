@@ -27,6 +27,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -49,14 +50,14 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "MeteorMacAndCheese";
+            return $"{Size} Meteor Mac and Cheese";
         }
 
         public override string Description
         {
             get
             {
-                return $"{Size} Meteor Mac and Cheese";
+                return "Meteor Mac and Cheese";
             }
         }
 

@@ -1,30 +1,82 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged, IOrderItem
     {
         // Backing Variables
         private Size size;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
+        private Entree _entree;
         /// <summary>
         /// Gets and sets the entree
         /// </summary>
-        public Entree Entree { get; set; }
+        public Entree Entree
+        {
+            get
+            {
+                return _entree;
+            }
+            set
+            {
+                _entree = value;
+                NotifyOfPropertyChanged("Special");
+                _entree.PropertyChanged += ConstituentListener;
+            }
+        }
 
         /// <summary>
         /// Gets and sets the side
         /// </summary>
-        public Side Side { get; set; } = new Fryceritops();
+        private Side _side;
+        public Side Side
+        {
+            get
+            {
+                return _side;
+            }
+            set
+            {
+                _side = value;
+                _side.Size = Size;
+                NotifyOfPropertyChanged("Special");
+                _side.PropertyChanged += ConstituentListener;
+            }
+        }
 
+        private void ConstituentListener(object sender, PropertyChangedEventArgs args)
+        {
+            NotifyOfPropertyChanged("Special");
+        }
+
+        private Drink _drink;
         /// <summary>
         /// Gets and sets the drink
         /// </summary>
-        public Drink Drink { get; set; } = new Sodasaurus();
+        public Drink Drink
+        {
+            get
+            {
+                return _drink;
+            }
+            set
+            {
+                _drink = value;
+                _drink.Size = Size;
+                NotifyOfPropertyChanged("Special");
+                _drink.PropertyChanged += ConstituentListener;
+            }
+        }
 
         /// <summary>
         /// Gets the price of the combo
@@ -59,6 +111,9 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChanged("Description");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
             }
         }
 
@@ -85,6 +140,8 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             this.Entree = entree;
+            this.Side = new Fryceritops();
+            this.Drink = new Sodasaurus();
         }
 
         public string[] Special
@@ -92,6 +149,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> specials = new List<string>();
+                specials.Add(Entree.Description);
                 specials.AddRange(Entree.Special);
                 specials.Add(Side.Description);
                 specials.AddRange(Side.Special);
@@ -99,6 +157,19 @@ namespace DinoDiner.Menu
                 specials.AddRange(Drink.Special);
                 return specials.ToArray();
             }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return "Cretaceous Combo";
+            }
+        }
+
+        public string ToString()
+        {
+            return $"{Entree} Combo";
         }
     }
 }

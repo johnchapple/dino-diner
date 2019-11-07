@@ -40,7 +40,7 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "PrehistoricPBJ";
+            return "Prehistoric PB&J";
         }
 
         public override string Description
@@ -64,7 +64,7 @@ namespace DinoDiner.Menu
 
         public override event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyOfPropertyChanged(string propertyName)
+        protected override void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

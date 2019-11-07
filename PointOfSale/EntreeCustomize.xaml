@@ -1,0 +1,70 @@
+﻿<Page x:Class="PointOfSale.EntreeCustomize"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EntreeCustomize">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Name="Onions" Click="HoldOnions">
+            Hold Onions
+        </Button>
+        <Button Grid.Row="0" Grid.Column="1" Name="Peppers" Click="HoldPeppers">
+            Hold Peppers
+        </Button>
+        <Button Grid.Row="0" Grid.Column="2" Name="Bun" Click="HoldBun">
+            Hold Bun
+        </Button>
+        <Button Grid.Row="1" Grid.Column="0" Name="Nuggets" Click="AddNugget">
+            Add Nugget
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1" Name="Jelly" Click="HoldJelly">
+            Hold Jelly
+        </Button>
+        <Button Grid.Row="1" Grid.Column="2" Name="PeanutButter" Click="HoldPeanutButter">
+            Hold Peanut Butter
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0" Name="Pickles" Click="HoldPickles">
+            Hold Pickles
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1" Name="Ketchup" Click="HoldKetchup">
+            Hold Ketchup
+        </Button>
+        <Button Grid.Row="2" Grid.Column="2" Name="Mustard" Click="HoldMustard">
+            Hold Mustard
+        </Button>
+        <Button Grid.Row="3" Grid.Column="0" Name="Mayo" Click="HoldMayo">
+            Hold Mayo
+        </Button>
+        <Button Grid.Row="3" Grid.Column="1" Name="Tomato" Click="HoldTomato">
+            Hold Tomato
+        </Button>
+        <Button Grid.Row="3" Grid.Column="2" Name="Lettuce" Click="HoldLettuce">
+            Hold Lettuce
+        </Button>
+        <Button Grid.Row="4" Grid.Column="0" Name="Done" Click="GoHome">
+            Done
+        </Button>
+        <Button Grid.Row="4" Grid.Column="1" Name="Dressing" Click="HoldDressing">
+            Hold Dressing
+        </Button>
+        <Button Grid.Row="4" Grid.Column="2" Name="Cheese" Click="HoldCheese">
+            Hold Cheese
+        </Button>
+    </Grid>
+</Page>
