@@ -25,19 +25,6 @@ namespace PointOfSale
         {
             InitializeComponent();
             Order order = DataContext as Order;
-            if (order != null)
-            {
-                order.Add(new DinoNuggets());
-                order.Add(new Sodasaurus());
-                order.Add(new Fryceritops());
-                Triceritots tots = new Triceritots();
-                tots.Size = DinoDiner.Menu.Size.Large;
-                order.Add(tots);
-                SteakosaurusBurger sb = new SteakosaurusBurger();
-                sb.HoldMustard();
-                order.Add(sb);
-
-            }
         }
 
         private void PassOnDataContext()

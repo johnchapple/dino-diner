@@ -42,8 +42,6 @@ namespace DinoDiner.Menu
         {
             Price = 0.1;
             Calories = 0;
-            Ice = true;
-            Lemon = false;
         }
 
         public void AddLemon()
@@ -56,27 +54,30 @@ namespace DinoDiner.Menu
             return "Water";
         }
 
+        private bool _ice = true;
         public override bool Ice
         {
             get
             {
-                return Ice;
+                return _ice;
             }
             set
             {
-                Ice = value;
+                _ice = value;
                 NotifyOfPropertyChanged("Special");
             }
         }
+
+        private bool _lemon = false;
         public bool Lemon
         {
             get
             {
-                return Lemon;
+                return _lemon;
             }
             set
             {
-                Lemon = value;
+                _lemon = value;
                 NotifyOfPropertyChanged("Special");
             }
         }

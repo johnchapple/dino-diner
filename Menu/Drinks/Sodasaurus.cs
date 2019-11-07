@@ -18,9 +18,6 @@ namespace DinoDiner.Menu
 
             set
             {
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
-                NotifyOfPropertyChanged("Size");
                 size = value;
                 switch (size)
                 {
@@ -28,6 +25,9 @@ namespace DinoDiner.Menu
                     case Size.Medium: { Price = 2.00; Calories = 156; } break;
                     case Size.Large: { Price = 2.50; Calories = 208; } break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
             }
         }
 
@@ -56,13 +56,25 @@ namespace DinoDiner.Menu
 
         public override bool Ice { get; set; }
 
-        public SodasaurusFlavor Flavor;
+        private SodasaurusFlavor _flavor;
+        public SodasaurusFlavor Flavor
+        {
+            get
+            {
+                return _flavor;
+            }
+            set
+            {
+                _flavor = value;
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         public override string Description
         {
             get
             {
-                return "Sodasaurus";
+                return $"{Size} {Flavor} Sodasaurus";
             }
         }
 

@@ -75,6 +75,7 @@ namespace PointOfSale
             if (side != null)
             {
                 side.Size = DinoDiner.Menu.Size.Large;
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
 
@@ -83,6 +84,7 @@ namespace PointOfSale
             if (side != null)
             {
                 side.Size = DinoDiner.Menu.Size.Medium;
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
 
@@ -91,6 +93,7 @@ namespace PointOfSale
             if (side != null)
             {
                 side.Size = DinoDiner.Menu.Size.Small;
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
     }

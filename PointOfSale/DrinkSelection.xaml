@@ -20,35 +20,47 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">
+        <Button Grid.Row="0" Grid.Column="0" Click="AddSodasaurus">
             Sodasaurus
         </Button>
-        <Button Grid.Row="1" Grid.Column="0">
+        <Button Grid.Row="1" Grid.Column="0" Click="AddTyrannotea">
             Tyrannotea
         </Button>
-        <Button Grid.Row="2" Grid.Column="0">
+        <Button Grid.Row="2" Grid.Column="0" Click="AddJurassicJava">
             Jurrasic Java
         </Button>
-        <Button Grid.Row="3" Grid.Column="0">
+        <Button Grid.Row="3" Grid.Column="0" Click="AddWater">
             Water
         </Button>
-        <Button Grid.Row="0" Grid.Column="1">
+        <Button Grid.Row="0" Grid.Column="1" Click="MakeSmall">
             Small
         </Button>
-        <Button Grid.Row="1" Grid.Column="1">
+        <Button Grid.Row="1" Grid.Column="1" Click="MakeMedium">
             Medium
         </Button>
-        <Button Grid.Row="2" Grid.Column="1">
+        <Button Grid.Row="2" Grid.Column="1" Click="MakeLarge">
             Large
         </Button>
-        <Button Grid.Row="0" Grid.Column="2" Click="chooseFlavor">
-            Sweet / Decaf / Flavor
+        <Button Grid.Row="0" Grid.Column="2" Name="Cream" Click="LeaveRoomForCream">
+            Leave Room For Cream
         </Button>
-        <Button Grid.Row="1" Grid.Column="2">
+        <Button Grid.Row="1" Grid.Column="2" Name="Lemon" Click="Lemonize">
             Add Lemon
         </Button>
-        <Button Grid.Row="2" Grid.Column="2">
-            Hold Ice
+        <Button Grid.Row="2" Grid.Column="2" Name="Ice" Click="ToggleIce">
+            Toggle Ice
+        </Button>
+        <Button Grid.Row="3" Grid.Column="2" Name="Flavor" Click="chooseFlavor">
+            Choose Flavor
+        </Button>
+        <Button Grid.Row="3" Grid.Column="2" Name="Decaf" Click="ToggleDecaf">
+            Toggle Decaf
+        </Button>
+        <Button Grid.Row="3" Grid.Column="2" Name="Sweet" Click="Sweeten">
+            Toggle Sweetness
+        </Button>
+        <Button Grid.Row="3" Grid.Column="1" Click="GoHome">
+            Done
         </Button>
     </Grid>
 </Page>

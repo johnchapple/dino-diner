@@ -48,7 +48,6 @@ namespace DinoDiner.Menu
         {
             Price = 0.99;
             Calories = 8;
-            Sweet = false;
             Lemon = false;
             Ice = true;
         }
@@ -64,14 +63,26 @@ namespace DinoDiner.Menu
         }
 
         public override bool Ice { get; set; }
-        public bool Sweet { get; set; }
+        private bool _sweet = false;
+        public bool Sweet
+        {
+            get
+            {
+                return _sweet;
+            }
+            set
+            {
+                _sweet = value;
+                NotifyOfPropertyChanged("Description");
+            }
+        }
         public bool Lemon { get; set; }
         public override string Description
         {
             get
             {
-                if (Sweet) return "Sweet Tyrannotea";
-                return "Tyrannotea";
+                if (Sweet) return $"Sweet {Size} Tyrannotea";
+                return $"{Size} Tyrannotea";
             }
         }
 

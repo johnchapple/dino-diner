@@ -18,9 +18,6 @@ namespace DinoDiner.Menu
 
             set
             {
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
-                NotifyOfPropertyChanged("Size");
                 size = value;
                 switch (size)
                 {
@@ -28,6 +25,9 @@ namespace DinoDiner.Menu
                     case Size.Medium: { Price = 0.99; Calories = 4; } break;
                     case Size.Large: { Price = 1.49; Calories = 8; } break;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Size");
             }
         }
 
@@ -63,7 +63,8 @@ namespace DinoDiner.Menu
         }
 
         public override bool Ice { get; set; }
-        public bool Decaf { get; set; }
+        private bool _decaf;
+        public bool Decaf { get { return _decaf; } set { _decaf = value; NotifyOfPropertyChanged("Description"); } }
         public bool RoomForCream { get; set; }
 
         public override string ToString()
@@ -75,8 +76,8 @@ namespace DinoDiner.Menu
         {
             get
             {
-                if (Decaf) return "Decaf Jurrasic Java";
-                return "Jurrasic Java";
+                if (Decaf) return $"Decaf {Size} Jurrasic Java";
+                return $"{Size} Jurrasic Java";
             }
         }
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -20,9 +21,20 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
-        public FlavorSelection()
+        private Sodasaurus drink;
+        public FlavorSelection(Sodasaurus drink)
         {
             InitializeComponent();
+            this.drink = drink;
         }
+
+        public void cherryFlavor(object sender, RoutedEventArgs args) { drink.Flavor = SodasaurusFlavor.Cherry; NavigationService.Navigate(new MenuCategorySelection()); }
+        public void limeFlavor(object sender, RoutedEventArgs args) { drink.Flavor = SodasaurusFlavor.Lime; NavigationService.Navigate(new MenuCategorySelection()); }
+        public void chocolateFlavor(object sender, RoutedEventArgs args) { drink.Flavor = SodasaurusFlavor.Chocolate; NavigationService.Navigate(new MenuCategorySelection()); }
+        public void orangeFlavor(object sender, RoutedEventArgs args) { drink.Flavor = SodasaurusFlavor.Orange; NavigationService.Navigate(new MenuCategorySelection()); }
+        public void colaFlavor(object sender, RoutedEventArgs args) { drink.Flavor = SodasaurusFlavor.Cola; NavigationService.Navigate(new MenuCategorySelection()); }
+        public void rootbeerFlavor(object sender, RoutedEventArgs args) { drink.Flavor = SodasaurusFlavor.RootBeer; NavigationService.Navigate(new MenuCategorySelection()); }
+        public void vanillaFlavor(object sender, RoutedEventArgs args) { drink.Flavor = SodasaurusFlavor.Vanilla; NavigationService.Navigate(new MenuCategorySelection()); }
+
     }
 }
