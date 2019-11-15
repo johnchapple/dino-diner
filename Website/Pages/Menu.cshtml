@@ -4,5 +4,85 @@
     ViewData["Title"] = "Menu";
 }
 
-<h2>Menu</h2>
+<nav style="display: flex;">
+    <a href="/Menu" style="flex-grow: 1; text-align: center; padding: .75rem; border: 5px solid #22b573">Menu</a>
+    <a href="/About" style="flex-grow: 1; text-align: center; padding: .75rem; border: 5px solid #22b573">About</a>
+    <a href="/Privacy" style="flex-grow: 1; text-align: center; padding: .75rem; border: 5px solid #22b573">Privacy</a>
+</nav>
 
+<h2 style="text-align: center;">Menu</h2>
+
+<div style="display: flex; height: 100%;">
+    <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
+        <h2>Combos</h2>
+        @foreach (DinoDiner.Menu.CretaceousCombo combo in Model.menu.AvailableCombos)
+        {
+            <div class="menu-item" style="border: brown 5px solid;">
+                <h3>@combo.Entree  Combo</h3>
+                <p style="margin: 0px;"><b>Calories:</b> @combo.Calories</p>
+                <p style="margin: 0px;"><b>Price:</b> $@combo.Price</p>
+                <div style="margin: 0px;">
+                    <p>Ingredients</p>
+                    @foreach (String i in combo.Ingredients)
+                    {
+                        <p style="margin:0px;">@i</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
+        <h2>Entrees</h2>
+        @foreach (DinoDiner.Menu.Entree entree in Model.menu.AvailableEntrees)
+        {
+            <div class="menu-item" style="border: brown 5px solid;">
+                <h3 style="margin:4px;">@entree.Description</h3>
+                <p style="margin: 0px;"><b>Calories:</b> @entree.Calories</p>
+                <p style="margin: 0px;"><b>Price:</b> $@entree.Price</p>
+                <div style="margin: 0px;">
+                    <p>Ingredients</p>
+                    @foreach (String i in entree.Ingredients)
+                    {
+                        <p style="margin:0px;">@i</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
+        <h2>Sides</h2>
+        @foreach (DinoDiner.Menu.Side side in Model.menu.AvailableSides)
+        {
+            <div class="menu-item" style="border: brown 5px solid;">
+                <h3 style="margin:4px;">@side.Description</h3>
+                <p style="margin: 0px;"><b>Calories:</b> @side.Calories</p>
+                <p style="margin: 0px;"><b>Price:</b> $@side.Price</p>
+                <div style="margin: 0px;">
+                    <p>Ingredients</p>
+                    @foreach (String i in side.Ingredients)
+                    {
+                        <p style="margin:0px;">@i</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
+        <h2>Drinks</h2>
+        @foreach (DinoDiner.Menu.Drink drink in Model.menu.AvailableDrinks)
+        {
+            <div class="menu-item" style="border: brown 5px solid;">
+                <h3 style="margin:4px;">@drink.Description</h3>
+                <p style="margin: 0px;"><b>Calories:</b> @drink.Calories</p>
+                <p style="margin: 0px;"><b>Price:</b> $@drink.Price</p>
+                <div style="margin: 0px;">
+                    <p>Ingredients</p>
+                    @foreach (String i in drink.Ingredients)
+                    {
+                        <p style="margin:0px;">@i</p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
