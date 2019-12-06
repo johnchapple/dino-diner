@@ -15,7 +15,7 @@
 <div style="display: flex; height: 100%;">
     <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
         <h2>Combos</h2>
-        @foreach (DinoDiner.Menu.CretaceousCombo combo in Model.menu.AvailableCombos)
+        @foreach (DinoDiner.Menu.CretaceousCombo combo in Model.combos)
         {
             <div class="menu-item" style="border: brown 5px solid;">
                 <h3>@combo.Entree  Combo</h3>
@@ -33,7 +33,7 @@
     </div>
     <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
         <h2>Entrees</h2>
-        @foreach (DinoDiner.Menu.Entree entree in Model.menu.AvailableEntrees)
+        @foreach (DinoDiner.Menu.Entree entree in Model.entrees)
         {
             <div class="menu-item" style="border: brown 5px solid;">
                 <h3 style="margin:4px;">@entree.Description</h3>
@@ -51,7 +51,7 @@
     </div>
     <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
         <h2>Sides</h2>
-        @foreach (DinoDiner.Menu.Side side in Model.menu.AvailableSides)
+        @foreach (DinoDiner.Menu.Side side in Model.sides)
         {
             <div class="menu-item" style="border: brown 5px solid;">
                 <h3 style="margin:4px;">@side.Description</h3>
@@ -69,7 +69,7 @@
     </div>
     <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
         <h2>Drinks</h2>
-        @foreach (DinoDiner.Menu.Drink drink in Model.menu.AvailableDrinks)
+        @foreach (DinoDiner.Menu.Drink drink in Model.drinks)
         {
             <div class="menu-item" style="border: brown 5px solid;">
                 <h3 style="margin:4px;">@drink.Description</h3>
@@ -84,5 +84,71 @@
                 </div>
             </div>
         }
+    </div>
+    <div style="background-color: #ffffff; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%; padding: 1rem;">
+        <form method="post" name="saf">
+            <div>
+                <input type="text"
+                       id="search"
+                       name="search"
+                       placeholder="Search for..." />
+                <input type="submit"
+                       name="Search" />
+            </div>
+            <div>
+                <input type="submit"
+                       name="filter"
+                       id="filter"
+                       value="Apply Filter(s)" />
+            </div>
+            <div>
+                <p>Menu Category</p>
+                <input type="checkbox"
+                       class="menu-category"
+                       name="categories"
+                       value="Combo" />
+                <label value="Combo">Combo</label>
+                <input type="checkbox"
+                       class="menu-category"
+                       name="categories"
+                       value="Entree" />
+                <label value="Entree">Entree</label>
+                <input type="checkbox"
+                       class="menu-category"
+                       name="categories"
+                       value="Side" />
+                <label value="Side">Side</label>
+                <input type="checkbox"
+                       class="menu-category"
+                       name="categories"
+                       value="Drink" />
+                <label value="Drink">Drink</label>
+            </div>
+            <div>
+                <p>Price</p>
+                <div style="display: flex;">
+                    <label for="minimumPrice">Min</label>
+                    <input type="number"
+                           id="minimum-price"
+                           name="minimumPrice" />
+                    <label for="minimumPrice">Max</label>
+                    <input type="number"
+                           id="maximum-price"
+                           name="maximumPrice" />
+                </div>
+            </div>
+            <div>
+                @foreach (String i in Model.ingredients)
+                {
+                    <div style="width: 100%;">
+                        <input value="@i"
+                               name="inGredients"
+                               class="exclude-ingredient"
+                               type="checkbox" />
+                        <label for="@i">@i</label>
+                    </div>
+                }
+            </div>
+        </form>
     </div>
 </div>
