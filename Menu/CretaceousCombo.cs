@@ -163,7 +163,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return "Cretaceous Combo";
+                return $"{Entree.Description} Combo";
             }
         }
 

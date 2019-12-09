@@ -15,18 +15,31 @@
 <div style="display: flex; height: 100%;">
     <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
         <h2>Combos</h2>
-        @foreach (DinoDiner.Menu.CretaceousCombo combo in Model.combos)
+        @for (int c = 0; c < Model.combos.Count(); c++)
         {
             <div class="menu-item" style="border: brown 5px solid;">
-                <h3>@combo.Entree  Combo</h3>
-                <p style="margin: 0px;"><b>Calories:</b> @combo.Calories</p>
-                <p style="margin: 0px;"><b>Price:</b> $@combo.Price</p>
+                <h3>@(((DinoDiner.Menu.CretaceousCombo)Model.combos.ElementAt(c)).Entree)  Combo</h3>
+                <table style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <th style="border: 1px solid black">Size</th>
+                        <th style="border: 1px solid black">Price</th>
+                        <th style="border: 1px solid black">Calories</th>
+                    </tr>
+                    @foreach (DinoDiner.Menu.CretaceousCombo comboWSize in Model.combosAll.ElementAt(c))
+        {
+                        <tr>
+                            <td style="border: 1px solid black">@comboWSize.Size</td>
+                            <td style="border: 1px solid black">@comboWSize.Price</td>
+                            <td style="border: 1px solid black">@comboWSize.Calories</td>
+                        </tr>
+        }
+                </table>
                 <div style="margin: 0px;">
-                    <p>Ingredients</p>
-                    @foreach (String i in combo.Ingredients)
-                    {
+                    <h3>Ingredients</h3>
+                    @foreach (String i in (((DinoDiner.Menu.CretaceousCombo)Model.combos.ElementAt(c)).Ingredients))
+        {
                         <p style="margin:0px;">@i</p>
-                    }
+        }
                 </div>
             </div>
         }
@@ -40,7 +53,7 @@
                 <p style="margin: 0px;"><b>Calories:</b> @entree.Calories</p>
                 <p style="margin: 0px;"><b>Price:</b> $@entree.Price</p>
                 <div style="margin: 0px;">
-                    <p>Ingredients</p>
+                    <h3>Ingredients</h3>
                     @foreach (String i in entree.Ingredients)
                     {
                         <p style="margin:0px;">@i</p>
@@ -51,15 +64,28 @@
     </div>
     <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
         <h2>Sides</h2>
-        @foreach (DinoDiner.Menu.Side side in Model.sides)
+        @for (int s = 0; s < Model.sides.Count(); s++)
         {
             <div class="menu-item" style="border: brown 5px solid;">
-                <h3 style="margin:4px;">@side.Description</h3>
-                <p style="margin: 0px;"><b>Calories:</b> @side.Calories</p>
-                <p style="margin: 0px;"><b>Price:</b> $@side.Price</p>
+                <h3 style="margin:4px;">@Model.sides.ElementAt(s).Description</h3>
+                <table style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <th style="border: 1px solid black">Size</th>
+                        <th style="border: 1px solid black">Price</th>
+                        <th style="border: 1px solid black">Calories</th>
+                    </tr>
+                    @foreach (DinoDiner.Menu.Side sideWSize in Model.sidesAll.ElementAt(s))
+                    {
+                        <tr>
+                            <td style="border: 1px solid black">@sideWSize.Size</td>
+                            <td style="border: 1px solid black">@sideWSize.Price</td>
+                            <td style="border: 1px solid black">@sideWSize.Calories</td>
+                        </tr>
+                    }
+                </table>
                 <div style="margin: 0px;">
-                    <p>Ingredients</p>
-                    @foreach (String i in side.Ingredients)
+                    <h3>Ingredients</h3>
+                    @foreach (String i in Model.sides.ElementAt(s).Ingredients)
                     {
                         <p style="margin:0px;">@i</p>
                     }
@@ -69,15 +95,28 @@
     </div>
     <div style="background-color: #22b573; border: gold 5px solid; text-align: center; flex-grow: 1; height: 100%;">
         <h2>Drinks</h2>
-        @foreach (DinoDiner.Menu.Drink drink in Model.drinks)
+        @for (int d = 0; d < Model.drinks.Count(); d++)
         {
             <div class="menu-item" style="border: brown 5px solid;">
-                <h3 style="margin:4px;">@drink.Description</h3>
-                <p style="margin: 0px;"><b>Calories:</b> @drink.Calories</p>
-                <p style="margin: 0px;"><b>Price:</b> $@drink.Price</p>
+                <h3 style="margin:4px;">@Model.drinks.ElementAt(d).Description</h3>
+                                <table style="margin-left: auto; margin-right: auto;">
+                    <tr>
+                        <th style="border: 1px solid black">Size</th>
+                        <th style="border: 1px solid black">Price</th>
+                        <th style="border: 1px solid black">Calories</th>
+                    </tr>
+                    @foreach (DinoDiner.Menu.Drink drinkWSize in Model.drinksAll.ElementAt(d))
+        {
+                        <tr>
+                            <td style="border: 1px solid black">@drinkWSize.Size</td>
+                            <td style="border: 1px solid black">@drinkWSize.Price</td>
+                            <td style="border: 1px solid black">@drinkWSize.Calories</td>
+                        </tr>
+        }
+                </table>
                 <div style="margin: 0px;">
-                    <p>Ingredients</p>
-                    @foreach (String i in drink.Ingredients)
+                    <h3>Ingredients</h3>
+                    @foreach (String i in Model.drinks.ElementAt(d).Ingredients)
                     {
                         <p style="margin:0px;">@i</p>
                     }

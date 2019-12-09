@@ -16,6 +16,9 @@ namespace Website.Pages
         public IEnumerable<IMenuItem> entrees = menu.AvailableEntrees;
         public IEnumerable<IMenuItem> sides = menu.AvailableSides;
         public IEnumerable<IMenuItem> drinks = menu.AvailableDrinks;
+        public IEnumerable<List<IMenuItem>> combosAll = menu.AvailableCombosAllSizes;
+        public IEnumerable<List<IMenuItem>> sidesAll = menu.AvailableSidesAllSizes;
+        public IEnumerable<List<IMenuItem>> drinksAll = menu.AvailableDrinksAllSizes;
         public List<String> ingredients = menu.PossibileIngredients;
 
         [BindProperty]
@@ -48,28 +51,46 @@ namespace Website.Pages
             
             if (search != null)
             {
-                
                 combos = combos.Where(combo => combo.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+                combosAll = combosAll.Where(combo => combo.ElementAt(0).Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+
                 entrees = entrees.Where(entree => entree.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+
                 sides = sides.Where(side => side.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+                sidesAll = sidesAll.Where(side => side.ElementAt(0).Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+
                 drinks = drinks.Where(drink => drink.Description.Contains(search, StringComparison.OrdinalIgnoreCase));
+                drinksAll = drinksAll.Where(drink => drink.ElementAt(0).Description.Contains(search, StringComparison.OrdinalIgnoreCase));
             }
             
 
             
             if (minimumPrice != null) {
                 combos = combos.Where(combo => combo.Price >= minimumPrice);
+                combosAll = combosAll.Where(combo => combo.ElementAt(0).Price >= minimumPrice);
+
                 entrees = entrees.Where(entree => entree.Price >= minimumPrice);
+
                 sides = sides.Where(side => side.Price >= minimumPrice);
+                sidesAll = sidesAll.Where(side => side.ElementAt(0).Price >= minimumPrice);
+
                 drinks = drinks.Where(drink => drink.Price >= minimumPrice);
+                drinksAll = drinksAll.Where(drink => drink.ElementAt(0).Price >= minimumPrice);
             }
 
             if (maximumPrice != null)
             {
                 combos = combos.Where(combo => combo.Price <= maximumPrice);
+                combosAll = combosAll.Where(combo => combo.ElementAt(0).Price <= maximumPrice);
+
                 entrees = entrees.Where(entree => entree.Price <= maximumPrice);
+
                 sides = sides.Where(side => side.Price <= maximumPrice);
+                sidesAll = sidesAll.Where(side => side.ElementAt(0).Price <= maximumPrice);
+
                 drinks = drinks.Where(drink => drink.Price <= maximumPrice);
+                drinksAll = drinksAll.Where(drink => drink.ElementAt(0).Price <= maximumPrice);
+
             }
 
             if (categories.Count != 0)
